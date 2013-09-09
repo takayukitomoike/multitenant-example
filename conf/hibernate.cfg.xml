@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE
+        hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Schema based multi-tenant -->
+        <property name="multiTenancy">SCHEMA</property>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/fruits</property>
+        <property name="connection.username">username</property>
+        <property name="connection.password">password</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQL82Dialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Disable echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+
+        <!-- Do nothing on startup -->
+        <property name="hbm2ddl.auto">none</property>
+
+        <mapping resource="mapping/Customer.hbm.xml" />
+        <mapping resource="mapping/History.hbm.xml" />
+
+    </session-factory>
+
+</hibernate-configuration>

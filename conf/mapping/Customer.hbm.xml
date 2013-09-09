@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE
+        hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="multi">
+
+    <class name="Customer" table="customer" lazy="false">
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="sequence">
+                <param name="sequence">seq_customer</param>
+            </generator>
+        </id>
+        <property name="name" column="name" type="java.lang.String" length="512" />
+    </class>
+
+</hibernate-mapping>
